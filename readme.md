@@ -25,6 +25,4 @@ After that, all the informations
 will be stored in a ``/tmp`` folder
 
 ## Stress test : 
-<figure class="video_container">
-  <iframe src="https://www.youtube.com/embed/_pSPlWBnfYg" frameborder="0" allowfullscreen="true"> </iframe>
-</figure>
+[Here you can watch a stress test i realized](https://www.youtube.com/embed/_pSPlWBnfYg)
