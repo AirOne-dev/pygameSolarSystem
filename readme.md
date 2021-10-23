@@ -17,5 +17,9 @@
 
 ## /!\ Important :
 For the first execution, the program need an internet connection
-to fetch the planet informations / images. After all the informations
+to fetch the planet informations / images. 
+
+And it can take some time to fetch / download the images
+
+After that, all the informations
 will be stored in a ``/tmp`` folder

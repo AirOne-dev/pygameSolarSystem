@@ -45,7 +45,6 @@ class Planet:
         self.oImage = image
 
         self.name = name
-        print(self.name + ': ' + str(self.oDistanceToSun))
         self.order = order
         self.scale = scale
         self.revolution = revolution
@@ -124,8 +123,6 @@ if not os.path.isfile('./tmp/data.json'):
 file = open('./tmp/data.json', "r")
 r = json.loads(file.read())
 file.close()
-
-
 
 for planet in r["records"]:
     planet = planet["fields"]
@@ -243,8 +240,13 @@ while play:
                             action = "delete-" + str(index)
 
                 action = action.split('-')
+
+                # Si action = delete, alors on supprime la planete sur laquelle
+                # on a cliqué
                 if action[0] == "delete":
                     del planetList[int(action[1])]
+
+                # Si action = add, on ajoute une planète ou on a cliqué
                 elif action[0] == "add":
                     # Calcul de la distance entre le curseur et le soleil
                     distanceToSun = math.sqrt( math.pow(sun.posX-cursorX, 2) + math.pow(sun.posY-cursorY, 2) ) / scale * 4650
@@ -256,9 +258,8 @@ while play:
                     
                     # Prend une planète aléatoire du système solaire généré
                     # au début du programme pour récupérer son image
-
                     rPos = random.randint(0, len(originalPlanetList)-1)
-                    print(originalPlanetList[rPos].oRadius);
+                    
                     rPlanet = Planet(
                         randomPlanetNameList[random.randint(0, len(randomPlanetNameList)-1)],
                         random.randint(100, 50000),
@@ -311,8 +312,8 @@ while play:
         planet.posX = mouse.pos.x + planet.distanceToSun * math.cos(planet.theta)
         planet.posY = mouse.pos.y + planet.distanceToSun * math.sin(planet.theta)
         
+        # Affiche la planète
         planet.display(screen)
-
 
         # Calcule l'angle des satelites autour de la planete et les affiche
         for satelite in planet.satelites:
@@ -320,6 +321,7 @@ while play:
             satelite.posX = planet.posX + satelite.distanceToPlanet * math.cos(satelite.theta)
             satelite.posY = planet.posY + satelite.distanceToPlanet * math.sin(satelite.theta)
 
+            # Affiche le satelite
             pygame.draw.circle(screen,  (255, 255, 255), (satelite.posX, satelite.posY), satelite.radius)
 
     # Affiche les infos sur les commandes en bas à gauche de l'écran
