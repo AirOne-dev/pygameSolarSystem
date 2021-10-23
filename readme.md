@@ -23,3 +23,8 @@ And it can take some time to fetch / download the images
 
 After that, all the informations
 will be stored in a ``/tmp`` folder
+
+## Stress test : 
+<figure class="video_container">
+  <iframe src="https://www.youtube.com/embed/_pSPlWBnfYg" frameborder="0" allowfullscreen="true"> </iframe>
+</figure>
